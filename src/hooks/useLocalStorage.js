@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-function useLocalStorage(key, initialValue) {
+export default function useLocalStorage(key, initialValue) {
   const [storedValue, setStoredValue] = useState(() => {
     const item = window.localStorage.getItem(key);
     const setValue = value => {
