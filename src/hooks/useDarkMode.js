@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import useLocalStorage from "./useLocalStorage";
-import Navbar from "../components/Navbar";
-function useDarkmode() {
+
+export default function useDarkmode() {
   const [DarkModeOnOrOff, setDarkModeOnOrOff] = useLocalStorage(
     "DarkModeToggle"
   );
@@ -9,5 +9,6 @@ function useDarkmode() {
     useLocalStorage(DarkModeOnOrOff)
       ? document.body.classList.add("dark-mode")
       : document.body.classList.remove("dark-mode");
-  }, [Navbar]);
+  }, [DarkModeOnOrOff]);
+  return [DarkModeOnOrOff, setDarkModeOnOrOff];
 }
